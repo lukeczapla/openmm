@@ -144,6 +144,7 @@ void CustomIntegrator::step(int steps) {
         throw OpenMMException("This Integrator is not bound to a context!");  
     globalsAreCurrent = false;
     context->CVTimeSeriesBuffer.clear();
+    context->collectiveVariableValues.clear();
     context->globalVariableTimeSeriesBuffer.clear();
     for (int i = 0; i < steps; ++i) {
         context->updateGlobalVariablesCache();

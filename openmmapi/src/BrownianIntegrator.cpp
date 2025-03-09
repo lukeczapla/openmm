@@ -91,6 +91,7 @@ void BrownianIntegrator::step(int steps) {
     if (context == NULL)
         throw OpenMMException("This Integrator is not bound to a context!");
     context->CVTimeSeriesBuffer.clear();
+    context->collectiveVariableValues.clear();
     for (int i = 0; i < steps; ++i) {
         context->updateContextState();
         context->calcForcesAndEnergy(true, false, getIntegrationForceGroups());

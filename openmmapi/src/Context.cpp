@@ -245,11 +245,11 @@ void Context::computeVirtualSites() {
     impl->computeVirtualSites();
 }
 
-const std::vector<std::vector<double>> Context::getCVTimeSeries() {
+std::vector<std::vector<double>> Context::getCVTimeSeries() {
     return impl->getCVTimeSeries();
 }
 
-const std::vector<std::vector<double>> Context::getGlobalVariableTimeSeries() {
+std::vector<std::vector<double>> Context::getGlobalVariableTimeSeries() {
     return impl->getGlobalVariableTimeSeries();
 }
 

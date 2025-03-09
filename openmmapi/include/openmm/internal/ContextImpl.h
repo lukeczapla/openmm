@@ -39,6 +39,8 @@
 #include <map>
 #include <vector>
 
+using namespace std;
+
 namespace OpenMM {
 
 class ForceImpl;
@@ -52,8 +54,13 @@ class System;
 
 class OPENMM_EXPORT ContextImpl {
 public:
-    State state;
 
+    /**
+     * New buffering variables that allow saving collectiveVariables (CustomCVForce) and globalVariables (CustomIntegrator)
+     *   during the simulation run.  That way the user can run `simulation.step(5000)` in Python and obtain the time series
+     *   that has everything that they would need to evaluate for an aMD or Metadynamics configuration, while not stopping
+     *   every timestep (or 10 time steps) to read the individual data points.
+     */
     vector<double> collectiveVariableValues;
     vector<double> globalVariableValues;
     vector<vector<double>> CVTimeSeriesBuffer;
