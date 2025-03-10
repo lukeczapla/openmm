@@ -214,13 +214,6 @@ void ContextImpl::updateGlobalVariablesCache() {
     // requires the cast to get the functions for Global Variables
     if (CustomIntegrator* customIntegrator = dynamic_cast<CustomIntegrator*>(&getIntegrator())) {
 
-        int currentStep = getTime();
-
-        if (currentStep == lastUpdatedStep)
-            return;
-
-        lastUpdatedStep = currentStep;
-
         globalVariableValues.resize(customIntegrator->getNumGlobalVariables());
 
         for (int i = 0; i < customIntegrator->getNumGlobalVariables(); i++) {
