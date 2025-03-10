@@ -65,6 +65,7 @@ public:
     vector<double> globalVariableValues;
     vector<vector<double>> CVTimeSeriesBuffer;
     vector<vector<double>> globalVariableTimeSeriesBuffer;
+
     void updateGlobalVariablesCache();
     /**
      * Create an ContextImpl for a Context;
